@@ -7,3 +7,14 @@
   <p>ユーザーネーム：<%= book.user.name %></p>
 </div>
 <% end %>
+
+<h1>画像投稿フォーム</h1>
+  <%= form_with model: @book do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>本の名前</h4>
+      <%= f.text_field :book_name %>
+    <h4>説明</h4>
+      <%= f.text_area :book_body %>
+    <%= f.submit '投稿' %>
+  <% end %>
