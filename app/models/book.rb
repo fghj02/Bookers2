@@ -9,4 +9,8 @@ class Book < ApplicationRecord
     end
     image
     end
+
+     validates :book_name, presence: true
+     validates :book_body, presence: true
+
 end
