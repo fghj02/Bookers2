@@ -12,12 +12,13 @@ class BooksController < ApplicationController
      flash[:notice] = "Book was successfully created."
     redirect_to books_path
    else
+     @books = book.all
      render :index
    end
   end
 
   def index
-    @books = Book.page(params[:page])
+    @books = Book.all
     @book = Book.new
 
   end
@@ -44,7 +45,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.destroy
      flash[:notice] = "Book was successfully destroyed."
-    redirect_to '/books'
+    redirect_to books_path
   end
 
 
@@ -53,5 +54,7 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:book_name, :image, :book_body)
   end
+  
+  
   
 end
