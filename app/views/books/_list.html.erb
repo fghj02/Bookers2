@@ -1,12 +1,18 @@
-<% books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
-  <% end %>
-  <p>image：<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>title：<%= book.book_name %></p>
-  <p>body：<%= book.book_body %></p>
-  <p>user name：<%= book.user.name %></p>
-</div>
+<table class='table table-inverse table-hover'>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="4"></th>
+    </tr>
+    </thead>
+  <tbody>
+  <% books.each do |book| %>
+ <tr>
+  <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+  <td><%= link_to book.book_name,book, class: "book_#{book.id}" %></td>
+  <td><%= book.book_body %></td>
+ </tr>
 <% end %>
-<%= paginate books %>
+   </tbody>
+</table>
