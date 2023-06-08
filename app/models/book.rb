@@ -11,6 +11,6 @@ class Book < ApplicationRecord
     end
 
      validates :book_name, presence: true
-     validates :book_body, presence: true
+     validates :book_body, presence: true ,length:{maximum: 200}
 
 end

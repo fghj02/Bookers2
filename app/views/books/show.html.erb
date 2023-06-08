@@ -8,18 +8,25 @@
        <h3 class="mt-3">New book</h3>
 
        <%= render 'form', book: Book.new %></div>
-       <div class= 'col-md-7 offset-md-1'></div>
+       <div class= 'col-md-7 offset-md-1'>
+         <h3>books detail</h3>
+         <table class='table'>
+         <tr>
+             <td><%= link_to (@book.user) do %>
+              <%= image_tag @book.user.get_profile_image(100,100) %>
+              <%= @book.user.name %>
+              <% end %>
 
-<div>
-  <%= image_tag @book.get_image %>
-  <p>title：<%= @book.book_name %></p>
-  <p>body：<%= @book.book_body %></p>
-  <p>投稿ユーザー画像：<%= image_tag @book.user.get_profile_image(100,100) %></p>  <p>ユーザーネーム：<%= @book.user.name %></p>
-  <p>投稿日時：<%= @book.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @book.user == current_user %>
-    <%= link_to "destroy", book_path(@book), method: :delete %>
+
+             </td>
+             <td><%= link_to @book.book_name, @book %></td>
+             <td><%= @book.book_body %></td>
+             <% if @book.user == current_user %>
+             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success edit_book_#{@book}" %></td>
+           <td> <%= link_to 'Destroy', book_path(@book), method: :delete, date: {confirm: 'are you ok?'} %></td>
   <% end %>
-</div>
-</div>
+           </tr>
+         </table>
+       </div>
 </div>
 </div>
