@@ -1,23 +1,20 @@
-<%= render 'list', books: @books %>
+<div class='container px-8'>
+  <%= render 'layouts/error', obj: @book %>
+  <div class="row">
+   <div class='col-md-4'>
 
-<h1>NEW BOOK</h1>
+      <h3>User info</h3>
+      <%= render 'users/info',user: current_user %>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
 
-  <%= form_with model: @book do |f| %>
-    <h4>image</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>title</h4>
-      <%= f.text_field :book_name %>
-    <h4>body</h4>
-      <%= f.text_area :book_body %>
-    <%= f.submit 'create' %>
-  <% end %>
+      <h3 class="mt-4">New book</h3>
+      <%= render 'form',book:@book %>
+     </div>
 
+     <div class='col-md-7 offset-md-1'>
+       <h3>books</h3>
+       <%= render 'list', books:@books %>
+    </div>
+  </div>
+
+</div>

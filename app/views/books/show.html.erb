@@ -1,3 +1,15 @@
+<div class='container'>
+  <div class="row">
+     <div class='col-md-4'>
+
+       <h3>Use info</h3>
+
+       <%= render 'users/info' , user: @book.user %>
+       <h3 class="mt-3">New book</h3>
+
+       <%= render 'form', book: Book.new %></div>
+       <div class= 'col-md-7 offset-md-1'></div>
+
 <div>
   <%= image_tag @book.get_image %>
   <p>title：<%= @book.book_name %></p>
@@ -7,4 +19,7 @@
   <% if @book.user == current_user %>
     <%= link_to "destroy", book_path(@book), method: :delete %>
   <% end %>
+</div>
+</div>
+</div>
 </div>
