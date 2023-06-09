@@ -24,7 +24,7 @@
              <% if @book.user == current_user %>
              <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-success edit_book_#{@book}" %></td>
            <td> <%= link_to 'Destroy', book_path(@book), method: :delete, date: {confirm: 'are you ok?'} %></td>
-  <% end %>
+                 <% end %>
            </tr>
          </table>
        </div>

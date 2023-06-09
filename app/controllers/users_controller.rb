@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
    def update
     if @user.update(user_params)
-     
+
     redirect_to user_path(@user),notice: "you have updated user successfully."
     else
       render "edit"
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @users = User.all
     @book = Book.new
   end
+
 
   private
 
